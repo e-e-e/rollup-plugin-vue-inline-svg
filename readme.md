@@ -34,7 +34,10 @@ You can be more explicit by passing include and exclude options.
 // `include` and `exclude` can each be a minimatch
 // pattern, or an array of minimatch patterns, relative to process.cwd()
 {
-  include: string or array of minimatch
-  exclude: string or array
+  include: string or array of minimatch,
+  exclude: string or array,
+  svgoConfig: svgo config object,
 }
 ```
+
+See [SVGO](https://github.com/svg/svgo) for configuration options that it accepts.
