@@ -5,7 +5,7 @@ import transpile from 'vue-template-es2015-compiler';
 
 const optimizeSvg = (content, config) => new Promise((resolve, reject) => {
   const svgo = new SVGO(config);
-  svgo.optimize(content, (result) => {
+  svgo.optimize(content).then((result) => {
     if (result.error) return reject(result.error);
     return resolve(result.data);
   });
