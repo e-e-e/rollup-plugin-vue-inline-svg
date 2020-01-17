@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-vue-inline-svg",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "convert svg files to optimised vue components",
   "main": "dist/rollup-plugin-vue-inline-svg.js",
   "module": "dist/rollup-plugin-vue-inline-svg.es.js",
