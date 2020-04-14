@@ -1,4 +1,4 @@
-import { createFilter } from 'rollup-pluginutils';
+import { createFilter } from '@rollup/pluginutils';
 import SVGO from 'svgo';
 import compiler from 'vue-template-compiler';
 import transpile from 'vue-template-es2015-compiler';

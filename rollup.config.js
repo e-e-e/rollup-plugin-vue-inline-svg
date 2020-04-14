@@ -1,5 +1,5 @@
-import buble from 'rollup-plugin-buble';
-import resolve from 'rollup-plugin-node-resolve';
+import buble from '@rollup/plugin-buble';
+import resolve from '@rollup/plugin-node-resolve';
 
 const pkg = require('./package.json');
 const external = Object.keys(pkg.dependencies).concat('path');
