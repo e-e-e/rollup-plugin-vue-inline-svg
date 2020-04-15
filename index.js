@@ -1,3 +1,4 @@
+import path from 'path';
 import { createFilter } from '@rollup/pluginutils';
 import SVGO from 'svgo';
 import compiler from 'vue-template-compiler';
@@ -18,6 +19,17 @@ export default function (options) {
   const filter = createFilter(include || '**/*.svg', exclude);
   return {
     name: 'vue-inline-svg',
+    resolveId: function (source) {
+      // Metches absolute paths
+      // of svgs in node_modules
+      // that are skipped by default in rollup
+      var regexp = /^(?!\.)\S+\.svg$/gi;
+      if (source.match(regexp)) {
+        const id = path.resolve('node_modules/', source);
+        return { id, external: false };
+      }
+      return null;
+    },
     transform: (source, id) => {
       if (!filter(id)) return null;
       return optimizeSvg(source, config).then((result) => {
