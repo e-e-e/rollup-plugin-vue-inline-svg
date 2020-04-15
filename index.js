@@ -3,9 +3,9 @@ import SVGO from 'svgo';
 import compiler from 'vue-template-compiler';
 import transpile from 'vue-template-es2015-compiler';
 
-const optimizeSvg = (content, config) => new Promise((resolve, reject) => {
+const optimizeSvg = (content, config, path) => new Promise((resolve, reject) => {
   const svgo = new SVGO(config);
-  svgo.optimize(content).then((result) => {
+  svgo.optimize(content, { path }).then((result) => {
     if (result.error) return reject(result.error);
     return resolve(result.data);
   });
@@ -20,7 +20,7 @@ export default function (options) {
     name: 'vue-inline-svg',
     transform: (source, id) => {
       if (!filter(id)) return null;
-      return optimizeSvg(source, config).then((result) => {
+      return optimizeSvg(source, config, id).then((result) => {
         const compiled = compiler.compile(result, { preserveWhitespace: false });
         const transformed = transpile(`module.exports = { render: function () { ${compiled.render} } };`).replace('module.exports =', 'export default');
         return transformed;
