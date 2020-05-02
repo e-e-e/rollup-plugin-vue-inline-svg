@@ -41,3 +41,13 @@ You can be more explicit by passing include and exclude options.
 ```
 
 See [SVGO](https://github.com/svg/svgo) for configuration options that it accepts.
+
+### Import svgs from `node_modules`
+
+The plugin is able to import svg files from `node_modules` packages:
+
+```js
+import AlertSvg from 'octicons/build/svg/alert.svg'
+```
+
+The only important thing to remember is that the **rollup build process needs to be started from the project root directory** (e.g. via npm scripts). This is because the plugin will search the `node_modules` directory, via the `process.cwd()` [node method](https://nodejs.org/api/process.html#process_process_cwd), from where the process has started.
