@@ -1,5 +1,5 @@
 # rollup-plugin-vue-inline-svg
-[![Build Status](https://travis-ci.org/e-e-e/rollup-plugin-vue-inline-svg.svg?branch=master)](https://travis-ci.org/e-e-e/rollup-plugin-vue-inline-svg)
+[![Unit tests](https://github.com/e-e-e/rollup-plugin-vue-inline-svg/actions/workflows/tests.yml/badge.svg)](https://github.com/e-e-e/rollup-plugin-vue-inline-svg/actions/workflows/tests.yml)
 
 A simple plugin to import svg files as vue components. This is intended to be used with [rollup-plugin-vue](https://www.npmjs.com/package/rollup-plugin-vue) and is based on [vue-svg-loader](https://www.npmjs.com/package/vue-svg-loader).
 
